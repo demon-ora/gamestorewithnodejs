@@ -4,11 +4,9 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
-const regestations = require('./controller/dashboard');
-const adding = require('./controller/add');
 
 app.use(express.static(path.join(__dirname,"static")))
- 
+
 const connection=mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -29,19 +27,17 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/dashboarduser',regestations.selectuser);
+exports.regs = (req, res) => {
+    res.render('reg', {
+        title : 'regestation form'
+    });
+}
 
-app.get('/reg',adding.regs);
-
-app.post('/save',adding.saves);
-
-app.get('/dashboarduser/edit/:userId',regestations.edit);
-
-app.post('/dashboarduser/update',regestations.update);
- 
-app.get('/dashboarduser/delete/:userId',regestations.deletes);
-
-// Server Listening
-app.listen(3000, () => {
-    console.log('Server is running at port 3000');
-});
+exports.saves = (req, res) => { 
+    let data = {name: req.body.name, email: req.body.email, password: req.body.password};
+    let sql = "INSERT INTO users SET ?";
+    let query = connection.query(sql, data,(err, results) => {
+      if(err) throw err;
+      res.redirect('/dashboarduser');
+    });
+}
