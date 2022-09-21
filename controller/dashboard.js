@@ -4,6 +4,9 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
+const upload = require('express-fileupload');
+app.use(upload())
+
 
 app.use(express.static(path.join(__dirname,"static")))
 
@@ -66,5 +69,25 @@ exports.deletes = (req, res) => {
     let query = connection.query(sql,(err, result) => {
         if(err) throw err;
         res.redirect('/dashboarduser');
+    });
+}
+
+exports.showgame = (req, res) => {
+    res.render('dashboardgame', {
+        title : 'File Upload Using Multer in Node.js and Express',
+    });
+}
+
+exports.savegames = function(req, res){ 
+    var file = req.files.image;
+    var filename = file.name;
+file.mv('./upload/'+filename,function(err){
+    if(err) throw err;
+})
+    let data = {title: req.body.title, cate: req.body.cate, gametype: req.body.gametype , image:filename, des: req.body.des };
+    let sql = "INSERT INTO games SET ?";
+    let query = connection.query(sql, data,(err, results) => {
+      if(err) throw err;
+      res.redirect('/dashboarduser');
     });
 }

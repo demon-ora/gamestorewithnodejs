@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game store</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" href="css/home.css"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="icon/all.min.css">
+<link rel="stylesheet" type="text/css" href="css/dashboardgame.css">
+	<link rel="stylesheet" type="text/css" href="jquery.js">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.min.js">
+</head> 
+<body>
+<!-- <body> -->
+ <div id="wrapper">
+   <!--side bar-->
+   <div id="sidebar-wrapper" style="position: fixed;">
+     <ul class="sidebar-nav">
+       <li><a href="#" class="logo"><img src="img/c.PNG" width="50px" height="50px">Dashboard</a></li>
+       <li><a href="dashboard.php"><i class="fas fa-home"></i>Home</a></li>
+       <li><a href="dashboarduser.php" ><i class="fas fa-user-alt"></i>User</a></li>
+       <li><a href="dashboardgamee.php"><i class="fas fa-gamepad"></i>Game</a></li>
+        <li><a href="feedback.php"><i class="fas fa-comments"></i>Feedback</a></li>
+       <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+      </ul>
+    </div>
+   <!--page content-->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <a href="#" class="btn btn-success" id="menu-toggle">toggle menu</a>
+
+          <form method="post" enctype="multipart/form-data" action="/dashboardgame/savegame">
+            <h1>Upload game</h1>
+               <label> Enter title of game</label><br>
+            <input type="text" name="title">
+            <br>
+                <input type="radio" id="normal" name="cate" value="1">
+                 <label for="normal">modedgame</label><br>
+                 <input type="radio" id="moded" name="cate" value="0">
+                 <label for="moded">normalgame</label><br>
+              
+               <select name="gametype" class="custom-select">
+              <option selected value="">Custom Select Menu</option>
+              <option value="action">action</option>
+              <option value="arcade">arcade</option>
+              <option value="adventure">adventure</option>
+              <option value="puzzel">puzzel</option>
+              <option value="sport">sport</option>
+             </select>
+             <br><br>
+               <p>Choose image of game:</p>
+           <input type="file" id="myFile" name="image">
+          
+        <br><br>
+            
+             <label for="something">Write something about game:</label>
+              <textarea class="form-control" rows="5" id="something" name="des"></textarea>
+               <div class="mt-3">
+                 <button type="submit" class="btn btn-primary" value="save" name="btnsave">Submit</button>
+               </div>
+           </form> 
+             <hr>
+
+         </div>
+       </div>
+      </div>
+    </div>
+  <!--menu toggle script-->
+    <script>
+      $("#menu-toggle").click(function(e){
+       e.preventDefault();
+      $("#wrapper").toggleClass("menuDisplayed");
+
+      })
+   </script>
+  </body>
+</html>

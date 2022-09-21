@@ -1,12 +1,15 @@
 const path = require('path');
 const express = require('express');
 const ejs = require('ejs');
+const upload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
 const regestations = require('./controller/dashboard');
 const adding = require('./controller/add');
 
+
+app.use(upload())
 app.use(express.static(path.join(__dirname,"static")))
  
 const connection=mysql.createConnection({
@@ -41,6 +44,9 @@ app.post('/dashboarduser/update',regestations.update);
  
 app.get('/dashboarduser/delete/:userId',regestations.deletes);
 
+app.get('/dashboardgame',regestations.showgame);
+
+app.post('/dashboardgame/savegame', regestations.savegames);
 // Server Listening
 app.listen(3000, () => {
     console.log('Server is running at port 3000');
