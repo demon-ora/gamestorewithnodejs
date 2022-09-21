@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/stylee.css">
+	<title><%=title %></title>
+</head>
+<body>
+<form action="/dashboarduser/update" method="post" class="box">
+    <input type="hidden" name="id" value="<%= user.id %>">
+	<h1>reg Form</h1>
+	<div class="form-element">
+		<label style="color:white">Username</label>
+		<input type="text" name="name" placeholder="enter username" value="<%= user.name %>">
+		
+	</div>
+	<div class="form-element">
+		<label style="color:white">Email</label>
+		<input type="email" name="email" placeholder="enter email" value="<%= user.email %>">
+
+	</div>
+    <div class="form-element">
+		<label style="color:white">Password</label>
+		<input type="password" name="password" placeholder="enter password" value="<%= user.password %>">
+
+	</div>
+	<div class="form-element">
+		<input type="submit" value="Login" name="login">
+	</div>
+</form>
+</body>
+</html>

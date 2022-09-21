@@ -1,0 +1,150 @@
+.gamecon{
+  display:inline;margin: 0px ;
+   padding: 0.625rem 0.625rem;
+}
+.xd{
+  padding:1.25rem 5.625rem;
+}
+.aa{
+  padding-right: 0.625rem ;
+}
+.fine{
+   height:13.125rem;
+   width:22.5rem;
+   padding-bottom: 0.625rem;
+}
+.fat{
+  width: 100px;
+  height: 100px;
+   border-radius: 50px;
+  background-color: #343a40;
+  position: relative;
+  animation: myfirst 5s linear 2s infinite alternate;
+}
+
+@keyframes myfirst {
+  0%   { left:0px; top:200px;}
+  25%  { left:0px; top:0px;}
+  50%  { left:0px; top:-50px;}
+  75%  { left:0px; top:-100px;}
+  100% { left:0px; top:200px;}
+}
+
+.foot{
+  height: 100%;
+   padding:0; 
+   margin-top:auto; 
+   width: 100%;
+}
+.footheading{
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(12, 76, 107);
+   padding:0px 0.625rem
+}
+
+.footi{
+ font-size: 1.4375rem; 
+  text-align: center;
+   cursor: pointer;
+}
+
+.footpa{
+  display: inline-block; 
+  padding:0px 1.25rem; 
+  font-size: 1.25rem;
+}
+.last{
+  text-align: center;
+   padding:0.625rem 0px;
+}
+
+@media(max-width: 1300px){
+  html{
+    font-size: 95%;
+
+  }
+}
+
+@media(max-width: 1234px){
+  html{
+    font-size: 90%;
+
+  }
+}
+
+@media(max-width: 1169px){
+  html{
+    font-size: 85%;
+
+  }
+}
+
+@media(max-width: 1104px){
+  html{
+    font-size: 80%;
+
+  }
+}
+
+@media(max-width: 1040px){
+  html{
+    font-size: 75%;
+
+  }
+}
+
+@media(max-width: 975px){
+  html{
+    font-size: 70%;
+
+  }
+}
+
+@media(max-width: 910px){
+  html{
+    font-size: 65%;
+
+  }
+}
+
+@media(max-width: 845px){
+  .xd{
+    padding:1.25rem 3.625rem;
+  }
+}
+
+@media(max-width: 803px){
+  .xd{
+    padding:1.25rem 0.625rem;
+  }
+}
+
+@media(max-width: 741px){
+  html{
+    font-size: 60%;
+  }
+}
+
+@media(max-width: 684px){
+  .fine{
+   height:18.45rem;
+   width:31.25rem;
+   padding-bottom: 0.625rem;
+}
+}
+@media(max-width: 626px){
+  .fine{
+   height:27.45rem;
+   width:51.25rem;
+   padding-bottom: 0.625rem;
+}
+}
+
+@media(max-width: 504px){
+ .fine{
+    height:auto;
+    width: 100%;
+     padding-bottom: 0.625rem;
+  }
+}

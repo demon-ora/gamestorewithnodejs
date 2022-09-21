@@ -1,0 +1,182 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.car{
+  height:37.5rem;
+   width:100%;
+ object-fit:cover;
+}
+
+.headingpara{
+  margin-right:0px;
+display: inline-block;
+color:blue;
+font-size: 1.562rem;
+padding:0px 1.87rem;
+}
+
+.para{
+	font-size:20;
+	color:grey;
+	text-align: justify;
+	padding: 0px 5.62rem;
+    
+}
+.icon{
+    color:blue;
+    padding:0.125rem 0.625rem;
+ }
+\
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+.cen{
+  height: 16.875rem;
+  width:27.0625rem;"
+}
+
+.inlie{
+  display: inline;
+}
+
+.sayheading{
+  text-align: center;
+   font-weight: 700; 
+   font-size: 1.875rem; 
+    padding: 1.875rem 0px;
+}
+
+.saypara{
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+   font-style:oblique;
+   padding-bottom: 1.875rem;
+}
+
+.foot{
+  height: 100%;
+   padding:0; 
+   margin-top:auto; 
+   width: 100%;
+}
+.footheading{
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(12, 76, 107);
+   padding:0px 0.625rem;
+}
+
+.footi{
+ font-size: 1.4375rem; 
+  text-align: center;
+   cursor: pointer;
+}
+.footpa1{
+  display: inline-block;  
+  font-size: 1.1rem;
+}
+
+.footpa{
+  display: inline-block; 
+  padding:0px 1.25rem; 
+  font-size: 1.25rem;
+}
+.last{
+  text-align: center;
+   padding:0.625rem 0px;
+}
+
+@media(max-width: 1300px){
+.cen{
+  height: 12.875rem;
+   width: 21.0625rem;
+}
+}
+@media(max-width: 1105px){
+ html{
+  font-size: 87%;
+ }
+}
+@media(max-width: 999px){
+  .fire{
+    display: none;
+  }
+ html{ font-size: 85%;}
+}
+@media(max-width: 938px){
+ html{
+   font-size: 80%;
+  }
+}
+
+@media(max-width: 864px){
+  html{
+   font-size: 77%;
+  }
+}
+@media(max-width: 833px){
+  html{
+   font-size: 75%;
+  }
+}
+
+@media(max-width: 813px){
+  html{
+   font-size: 72%;
+  }
+}
+@media(max-width: 783px){
+  html{
+   font-size: 70%;
+  }
+}
+@media(max-width: 760px){
+  .cen{
+    height: 330px;
+    width: 530px;
+    padding-left: 30px;
+  }
+}
+
+@media(max-width: 658px){
+  .cen{
+  height: 300px;
+  width: 500px;
+  padding:0px;
+  }
+}
+
+
+@media(max-width: 575px){
+  .fire{
+    display:block;
+  }
+}
+@media(max-width: 504px){
+ .cen{
+    height:auto;
+    width: 100%;
+  }
+}
