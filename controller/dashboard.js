@@ -73,8 +73,13 @@ exports.deletes = (req, res) => {
 }
 
 exports.showgame = (req, res) => {
-    res.render('dashboardgame', {
-        title : 'File Upload Using Multer in Node.js and Express',
+    let sql = "SELECT * FROM games";
+    let query = connection.query(sql, (err, rowss) => {
+        if(err) throw err;
+        res.render('dashboardgame', {
+            title : 'game',
+            games : rowss
+        });
     });
 }
 
@@ -89,5 +94,45 @@ file.mv('./upload/'+filename,function(err){
     let query = connection.query(sql, data,(err, results) => {
       if(err) throw err;
       res.redirect('/dashboarduser');
+    });
+}
+
+exports.editgame = (req, res) => {
+    const gameId = req.params.gameId;
+    let sql = `Select * from games where id = ${gameId}`;
+    let query = connection.query(sql,(err, result) => {
+        if(err) throw err;
+        res.render('editgame', {
+            title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
+            game : result[0]
+        });
+    });
+}
+
+exports.updategame = (req, res) => {
+    if(req.files){
+       var file = req.files.image;
+    var filename = file.name;
+file.mv('./upload/'+filename,function(err){
+    if(err) throw err;
+})}else{
+    var filename = req.body.oldimage;
+}
+  
+
+    const gameId = req.body.id;
+    let sql = "Update games SET title='"+req.body.title+"',  cate='"+req.body.cate+"',  gametype='"+req.body.gametype+"',  image='"+filename+"',  des='"+req.body.des+"' where id ="+gameId;
+    let query = connection.query(sql,(err, results) => {
+      if(err) throw err;
+      res.redirect('/dashboardgame');
+    });
+}
+
+exports.deletesgames = (req, res) => {
+    const gameId = req.params.gameId;
+    let sql = `DELETE from games where id = ${gameId}`;
+    let query = connection.query(sql,(err, result) => {
+        if(err) throw err;
+        res.redirect('/dashboardgame');
     });
 }

@@ -1,0 +1,80 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Game store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" href="css/home.css"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="icon/all.min.css">
+<link rel="stylesheet" type="text/css" href="css/dashboardgame.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="jquery/jquery.js">
+  <link rel="stylesheet" type="text/css" href="jquery/mixitup.min.js">
+  <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.min.js">
+</head> 
+<body>
+<!-- <body> -->
+
+   <form method="post" enctype="multipart/form-data" action="/dashboardgame/updategame">
+            <h1>Edit game</h1>
+            <input type="hidden" name="id" value="<%= game.id %>">
+           <label> Enter title of game</label><br>
+           <input type="text" name="title" value="<%= game.id %>"><br>
+                <input type="radio" id="normal" name="cate" value="1"
+                <% if(game.cate==1){ %>
+                   checked <% } %>
+                      >
+                 <label for="normal">modedgame</label><br>
+                 <input type="radio" id="moded" name="cate" value="0" 
+                 <% if(game.cate==0){ %>
+                    checked <% } %>
+                       >
+                 <label for="moded">normalgame</label><br>
+                  
+               <select name="gametype" class="custom-select">
+              <option selected value="">Custom Select Menu</option>
+              <option value="action"
+              <% if(game.gametype=="action"){ %>
+                selected <% } %>
+                   
+              >action</option>
+              <option value="arcade"
+              <% if(game.gametype=="arcade"){ %>
+                selected <% } %>
+              >arcade</option>
+              <option value="adventure"
+              <% if(game.gametype=="adventure"){ %>
+                selected <% } %>
+              >adventure</option>
+              <option value="puzzel"
+              <% if(game.gametype=="puzzel"){ %>
+                selected <% } %>
+              >puzzel</option>
+              <option value="sport"
+              <% if(game.gametype=="sport"){ %>
+                selected <% } %>
+              >sport</option>
+             </select>
+              <br><br>
+               <p>Choose image of game:</p>
+           <input type="file" id="myFile" name="image" value="" >
+           <input type="hidden" id="myFile" name="oldimage" value="<%= game.image %>" ><%= game.image %>
+             <br><br>
+             <label for="something">Write something about game:</label>
+              <textarea class="form-control" rows="5" id="something" name="des"><%= game.des %></textarea>
+               <div class="mt-3">
+                 <button type="submit" class="btn btn-primary" value="save" name="btnupdate">Submit</button>
+               </div>
+           </form> 
+           </div>
+       </div>
+      </div>
+    </div>
+ </body>
+ </html>
+ 

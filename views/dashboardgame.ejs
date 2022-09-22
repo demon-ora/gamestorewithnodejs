@@ -68,7 +68,43 @@
                </div>
            </form> 
              <hr>
-
+             <table  style="font-size: 0.9375rem;" class="table table-striped">
+              <thead class="thead-dark">
+             <tr>
+              <th>id</th>
+               <th>title</th>
+               <th>Game catagories</th>
+               <th>Game Type</th>
+               <th>Image</th>
+                <th>descripation</th>
+                <th>delete</th>
+                <th>edit</th>
+             </tr>
+              </thead>
+              <% games.forEach(function(game){ %>
+             <tr>
+               <td><%= game.id %></td>
+               <td><%= game.title %></td>
+               <td><% if(game.cate==1){ %>
+               <p>moded game</p> <% } 
+              else{ %>
+               <p>normal game</p>
+              <% }
+                 %></td>
+               <td><%= game.gametype %></td>
+               <td> <img src="<%= game.image %>" height="50" width="50" style="object-fit: cover;">
+                </td>
+               <td><%= game.des %></td>
+               <td>
+                 <a href="/dashboardgame/delete/<%= game.id %>" onclick="return confirm('Are you sure to delete?')"><i class="fas fa-trash-alt fa-2x"></i></a></td>
+                <td> <a href="/dashboardgame/edit/<%= game.id %>">
+                 <button type="button" class="btn btn-warning">edit</button>
+                </a>
+               </td>
+             </tr>
+            <% }); %>
+            </table>
+           
          </div>
        </div>
       </div>

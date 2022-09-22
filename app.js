@@ -11,6 +11,7 @@ const adding = require('./controller/add');
 
 app.use(upload())
 app.use(express.static(path.join(__dirname,"static")))
+app.use(express.static('upload'))
  
 const connection=mysql.createConnection({
     host:'localhost',
@@ -47,6 +48,13 @@ app.get('/dashboarduser/delete/:userId',regestations.deletes);
 app.get('/dashboardgame',regestations.showgame);
 
 app.post('/dashboardgame/savegame', regestations.savegames);
+
+app.get('/dashboardgame/edit/:gameId', regestations.editgame);
+
+app.post('/dashboardgame/updategame', regestations.updategame);
+
+app.get('/dashboardgame/delete/:gameId',regestations.deletesgames);
+
 // Server Listening
 app.listen(3000, () => {
     console.log('Server is running at port 3000');
