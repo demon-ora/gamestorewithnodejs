@@ -93,7 +93,7 @@ file.mv('./upload/'+filename,function(err){
     let sql = "INSERT INTO games SET ?";
     let query = connection.query(sql, data,(err, results) => {
       if(err) throw err;
-      res.redirect('/dashboarduser');
+      res.redirect('/dashboardgame');
     });
 }
 

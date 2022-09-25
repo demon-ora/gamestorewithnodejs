@@ -7,11 +7,12 @@ const app = express();
 const mysql = require('mysql');
 const regestations = require('./controller/dashboard');
 const adding = require('./controller/add');
+const homes = require('./controller/home');
 
 
-app.use(upload())
+app.use(upload());
 app.use(express.static(path.join(__dirname,"static")))
-app.use(express.static('upload'))
+app.use(express.static(path.join(__dirname,'upload')))
  
 const connection=mysql.createConnection({
     host:'localhost',
@@ -54,6 +55,19 @@ app.get('/dashboardgame/edit/:gameId', regestations.editgame);
 app.post('/dashboardgame/updategame', regestations.updategame);
 
 app.get('/dashboardgame/delete/:gameId',regestations.deletesgames);
+
+app.get('/home',homes.home);
+
+app.get('/home/select/:gameId',(req, res) => {
+    const gameId = req.params.gameId;
+    let sql = `Select * from games where id = ${gameId}`;
+    let query = connection.query(sql,(err, resulttt) => {
+        res.render('select', {
+            title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
+            gamess : resulttt[0],
+         });  
+});
+});
 
 // Server Listening
 app.listen(3000, () => {
