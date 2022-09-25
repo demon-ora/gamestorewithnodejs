@@ -8,6 +8,7 @@ const mysql = require('mysql');
 const regestations = require('./controller/dashboard');
 const adding = require('./controller/add');
 const homes = require('./controller/home');
+const mod = require('./controller/modedgame');
 
 
 app.use(upload());
@@ -58,16 +59,11 @@ app.get('/dashboardgame/delete/:gameId',regestations.deletesgames);
 
 app.get('/home',homes.home);
 
-app.get('/home/select/:gameId',(req, res) => {
-    const gameId = req.params.gameId;
-    let sql = `Select * from games where id = ${gameId}`;
-    let query = connection.query(sql,(err, resulttt) => {
-        res.render('select', {
-            title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
-            gamess : resulttt[0],
-         });  
-});
-});
+app.get('/home/select/:gameId',homes.selects);
+
+app.get('/modedgame',mod.moded);
+
+app.get('/normalgame',mod.normal);
 
 // Server Listening
 app.listen(3000, () => {

@@ -46,6 +46,17 @@ exports.home = (req, res) =>{
     });
 }
 
+exports.selects =  (req, res) => {
+    const gameId = req.params.gameId;
+    let sql = `Select * from games where id = ${gameId}`;
+    let query = connection.query(sql,(err, resulttt) => {
+        res.render('select', {
+            title : 'CRUD Operation using NodeJS / ExpressJS / MySQL',
+            gamess : resulttt[0],
+         });  
+});
+}
+
 
 
 
