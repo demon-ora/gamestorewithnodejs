@@ -70,7 +70,7 @@ exports.normal = (req, res) =>{
                     let queryyyyy = connection.query(sqliiii,(err, rowsssss) => {
         if(err) throw err;
         res.render('modedgame', {
-            title : 'game',
+            title : 'normalgame',
             games : rows,
             gamess : rowss,
             gamesss:rowsss,
