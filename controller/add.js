@@ -41,3 +41,34 @@ exports.saves = (req, res) => {
       res.redirect('/dashboarduser');
     });
 }
+
+
+exports.logins = (req, res) => {
+    res.render('login', {
+        title : 'login form'
+    });
+}
+
+exports.loginbaby = (req, res) => {
+    // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
+    let sql = "SELECT * FROM users";
+    let query = connection.query(sql, (err, rows) => {
+        i=0;
+        if(err) throw err;
+        for(i=0;i<rows.length;i++){
+        if(rows[i].name==req.body.name && rows[i].password==req.body.password){
+            res.redirect('/home');
+            break;}
+        }
+        
+        if(req.body.name=="ora" && req.body.password=="oraora"){
+            res.redirect('/dashboarduser');
+        }
+        else{
+            res.render('login',{
+                title : 'login form'
+            });  
+        }
+ 
+    });
+}

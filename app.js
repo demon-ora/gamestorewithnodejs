@@ -65,6 +65,9 @@ app.get('/modedgame',mod.moded);
 
 app.get('/normalgame',mod.normal);
 
+app.get('/',adding.logins);
+
+app.post('/',adding.loginbaby);
 // Server Listening
 app.listen(3000, () => {
     console.log('Server is running at port 3000');
