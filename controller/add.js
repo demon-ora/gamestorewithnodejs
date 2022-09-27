@@ -51,24 +51,27 @@ exports.logins = (req, res) => {
 
 exports.loginbaby = (req, res) => {
     // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
-    let sql = "SELECT * FROM users";
+    let sql = "SELECT * FROM users order by id desc";
     let query = connection.query(sql, (err, rows) => {
         i=0;
         if(err) throw err;
         for(i=0;i<rows.length;i++){
         if(rows[i].name==req.body.name && rows[i].password==req.body.password){
+            req.session.sname=req.body.name;
             res.redirect('/home');
-            break;}
-        }
-        
-        if(req.body.name=="ora" && req.body.password=="oraora"){
-            res.redirect('/dashboarduser');
-        }
-        else{
-            res.render('login',{
-                title : 'login form'
-            });  
-        }
- 
+            break;}else if (req.body.name=="ora" && req.body.password=="oraora"){
+                req.session.ssname=req.body.name;
+                res.redirect('/dashboarduser');
+            break;
+            }else if(i=rows.length){
+                res.redirect('/');
+            }
+        } 
     });
+}
+
+exports.logouts = (req, res) => {
+    req.session.destroy(function(err) {
+           res.redirect('/');
+      })
 }

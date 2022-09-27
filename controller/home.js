@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-exports.home = (req, res) =>{
+exports.home =(req, res) =>{
     let sql = "SELECT * FROM games where cate=0 order by id desc limit 3";
     let sqli = "SELECT * FROM games where cate=1 order by id desc limit 3";
     let query = connection.query(sql,(err, rowss) => {
